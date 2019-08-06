@@ -3,6 +3,10 @@ import React, {Component, Fragment} from 'react'
 // 引入css
 import './index.css'
 
+// 引入子组件
+
+import Text from './text'
+
 class Women extends Component {
     constructor(props) {
         super(props)
@@ -45,13 +49,15 @@ class Women extends Component {
                     {
                         this.state.valueList.map((item, index) => {
                             return (
-                                <li 
-                                    key= {index + item}
-                                    onClick={this.deleteItem.bind(this,index)}
-                                    dangerouslySetInnerHTML = {{__html: item}}
-                                >
-                                    {/* 将文本尝试解析为标签，很危险，可能会被代码注入攻击，不建议使用 */}
-                                </li>
+                                // js 代码内依照惯例注释即可
+                                // <li 
+                                //     key= {index + item}
+                                //     onClick={this.deleteItem.bind(this,index)}
+                                //     dangerouslySetInnerHTML = {{__html: item}}
+                                // >
+                                //     {/* 将文本尝试解析为标签，很危险，可能会被代码注入攻击，不建议使用 */}
+                                // </li>
+                                <Text key={index + item}></Text>
                             )
                         })
                     }
