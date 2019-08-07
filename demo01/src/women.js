@@ -17,13 +17,17 @@ class Women extends Component {
     }
     inputChange(e){
         this.setState({
-            valueImput:e.target.value
+            valueImput: this.input.value
         })
     }
     addList(e) {
         this.setState({
             valueList : [...this.state.valueList, this.state.valueImput],
             valueImput: ''
+        }, () => {
+            console.log('====================================')
+            console.log(this.ul.querySelectorAll('li').length)
+            console.log('====================================')
         })
     }
     deleteItem(index) {
@@ -42,10 +46,10 @@ class Women extends Component {
                     {/* label标签注意项 使用htmlFor 直接使用for 会与js中的for冲突 */}
                     <label htmlFor="labelID">增加菜品</label>
                     {/* 添加类名需要使用 className, 用class 回报错，可能会与函数类冲突 */}
-                    <input id="labelID" className="borderSty" value = { this.state.valueImput } onChange={this.inputChange.bind(this)}/>
+                    <input ref={input => {this.input = input}} id="labelID" className="borderSty" value = { this.state.valueImput } onChange={this.inputChange.bind(this)}/>
                     <button onClick = { this.addList.bind(this)}>增加菜品</button>
                 </div>
-                <ul>
+                <ul ref={ul => {this.ul = ul}}>
                     {
                         this.state.valueList.map((item, index) => {
                             return (
