@@ -72,4 +72,5 @@ class Women extends Component {
     }
     
 }
+
 export default Women
