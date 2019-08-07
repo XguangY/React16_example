@@ -1,5 +1,9 @@
 import React, {Component, Fragment} from 'react'
 
+// 引入axios
+
+import Axios from 'axios'
+
 // 引入css
 import './index.css'
 
@@ -43,9 +47,12 @@ class Women extends Component {
     //     console.log('componentWillMount ---- 在组件即将被挂载到页面的时刻执行')
     // }
 
-    // componentDidMount() {
-    //     console.log('componentDidMount ---- 在组件挂载完成时刻执行')
-    // }
+    componentDidMount() {
+        console.log('componentDidMount ---- 在组件挂载完成时刻执行')
+        Axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
+          .then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res))  })
+          .catch((error)=>{console.log('axios 获取数据失败'+error)})
+    }
 
     // shouldComponentUpdate () {
     //     console.log('shouldComponentUpdate ---- 函数会在组件更新之前，自动被执行')
