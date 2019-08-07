@@ -39,26 +39,26 @@ class Women extends Component {
         })
     }
 
-    componentWillMount() {
-        console.log('componentWillMount ---- 在组件即将被挂载到页面的时刻执行')
-    }
+    // componentWillMount() {
+    //     console.log('componentWillMount ---- 在组件即将被挂载到页面的时刻执行')
+    // }
 
-    componentDidMount() {
-        console.log('componentDidMount ---- 在组件挂载完成时刻执行')
-    }
+    // componentDidMount() {
+    //     console.log('componentDidMount ---- 在组件挂载完成时刻执行')
+    // }
 
-    shouldComponentUpdate () {
-        console.log('shouldComponentUpdate ---- 函数会在组件更新之前，自动被执行')
-        return true // 返回一个true后续的钩子才会执行，可以在此处判断已决定时候继续更新，可以提高组件的性能
-    }
+    // shouldComponentUpdate () {
+    //     console.log('shouldComponentUpdate ---- 函数会在组件更新之前，自动被执行')
+    //     return true // 返回一个true后续的钩子才会执行，可以在此处判断已决定时候继续更新，可以提高组件的性能
+    // }
 
-    componentWillUpdate () {
-        console.log('componentWillUpdate ----- 组件更新之前，但是在shouldComponentUpdate之后执行')
-    }
+    // componentWillUpdate () {
+    //     console.log('componentWillUpdate ----- 组件更新之前，但是在shouldComponentUpdate之后执行')
+    // }
 
-    componentDidUpdate () {
-        console.log('componentDidUpdate ---- 组件更新之后执行')
-    }
+    // componentDidUpdate () {
+    //     console.log('componentDidUpdate ---- 组件更新之后执行')
+    // }
 
     render() {
         console.log('render ---- 在组件prop或者state改变时刻执行')

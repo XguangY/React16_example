@@ -16,14 +16,23 @@ class Text extends Component {
     // 也就是说这个组件第一次存在于Dom中，函数是不会被执行的;
     // 如果已经存在于Dom中，函数才会被执行。
 
-    componentWillReceiveProps(){
-        console.log('child - componentWillReceiveProps')
-    }
+    // componentWillReceiveProps(){
+    //     console.log('child - componentWillReceiveProps')
+    // }
 
-    componentWillUnmount () {
-        console.log('child - componentWillUnmount子组件被销毁触发')
-    }
+    // componentWillUnmount () {
+    //     console.log('child - componentWillUnmount子组件被销毁触发')
+    // }
 
+    // 组件性能优化
+        shouldComponentUpdate (nextProps, nextState) {
+            if (nextProps.content !== this.props.content) {
+                return true
+            } else {
+                return false
+            }
+    }
+    
     render() { 
         return ( 
             <li onClick = {this.handleCLick}>{this.props.name + '-----' + this.props.content}</li>
