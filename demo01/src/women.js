@@ -57,7 +57,12 @@ class Women extends Component {
                                 // >
                                 //     {/* 将文本尝试解析为标签，很危险，可能会被代码注入攻击，不建议使用 */}
                                 // </li>
-                                <Text key={index + item}></Text>
+                                <Text 
+                                    key={index + item}
+                                    content={item}
+                                    index = {index}
+                                    deleteItem = { this.deleteItem.bind(this)}
+                                ></Text>
                             )
                         })
                     }
