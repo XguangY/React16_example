@@ -2,7 +2,7 @@
     border: 2px solid blue;
 }
 
-.show {
+/* .show {
     animation: show-item 1.5s ease-in forwards;
 }
 
@@ -38,4 +38,25 @@
         opacity: 0;
         color: pink;
     }
+} */
+
+.boss-text-enter {
+    opacity: 0;
+}
+.boss-text-enter-active {
+    opacity: 1;
+    transition: opacity 2000ms; 
+}
+.boss-text-enter-done {
+    opacity: 1;
+}
+.boss-text-exit {
+    opacity: 1;
+}
+.boss-text-exit-active {
+    opacity: 0;
+    transition: opacity 2000ms; 
+}
+.boss-text-exit-done {
+    opacity: 0;
 }

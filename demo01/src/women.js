@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react'
 
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
 // 引入axios
 
 import Axios from 'axios'
@@ -90,26 +92,36 @@ class Women extends Component {
                     <button onClick = { this.addList.bind(this)}>增加菜品</button>
                 </div>
                 <ul ref={ul => {this.ul = ul}}>
-                    {
-                        this.state.valueList.map((item, index) => {
-                            return (
-                                // js 代码内依照惯例注释即可
-                                // <li 
-                                //     key= {index + item}
-                                //     onClick={this.deleteItem.bind(this,index)}
-                                //     dangerouslySetInnerHTML = {{__html: item}}
-                                // >
-                                //     {/* 将文本尝试解析为标签，很危险，可能会被代码注入攻击，不建议使用 */}
-                                // </li>
-                                <Text 
-                                    key={index + item}
-                                    content={item}
-                                    index = {index}
-                                    deleteItem = { this.deleteItem.bind(this)}
-                                ></Text>
-                            )
-                        })
-                    }
+                    <TransitionGroup>
+                        {
+                            this.state.valueList.map((item, index) => {
+                                return (
+                                    // js 代码内依照惯例注释即可
+                                    // <li 
+                                    //     key= {index + item}
+                                    //     onClick={this.deleteItem.bind(this,index)}
+                                    //     dangerouslySetInnerHTML = {{__html: item}}
+                                    // >
+                                    //     {/* 将文本尝试解析为标签，很危险，可能会被代码注入攻击，不建议使用 */}
+                                    // </li>
+                                    <CSSTransition
+                                        timeout={2000}
+                                        classNames="boss-text"
+                                        unmountOnExit
+                                        appear={true}
+                                        key={index + item }
+                                    >
+                                        <Text 
+                                            key={index + item}
+                                            content={item}
+                                            index = {index}
+                                            deleteItem = { this.deleteItem.bind(this)}
+                                        ></Text>
+                                    </CSSTransition>
+                                )
+                            })
+                        }
+                    </TransitionGroup>
                 </ul>
                 <Boss/>
             </Fragment>
