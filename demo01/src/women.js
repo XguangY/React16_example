@@ -9,6 +9,8 @@ import './index.css'
 
 // 引入子组件
 
+import Boss from './Boss'
+
 import Text from './text'
 
 class Women extends Component {
@@ -109,6 +111,7 @@ class Women extends Component {
                         })
                     }
                 </ul>
+                <Boss/>
             </Fragment>
         )
     }
