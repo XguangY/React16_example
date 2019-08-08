@@ -16,7 +16,7 @@ class Women extends Component {
         super(props)
         this.state = {
             valueImput: '',
-            valueList: ['狮子头', '排骨22']
+            valueList: []
         }
     }
 
@@ -49,9 +49,16 @@ class Women extends Component {
 
     componentDidMount() {
         console.log('componentDidMount ---- 在组件挂载完成时刻执行')
-        Axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
-          .then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res))  })
-          .catch((error)=>{console.log('axios 获取数据失败'+error)})
+        Axios.get('https://www.easy-mock.com/mock/5d4b7f412b2be649f7fe3542/reactDemo/menuBar')
+          .then((res) => {
+              console.log('axios 获取数据成功:'+JSON.stringify(res))  
+              this.setState({
+                valueList : res.data.data
+              })
+            })
+          .catch((error)=>{
+              console.log('axios 获取数据失败'+error)
+            })
     }
 
     // shouldComponentUpdate () {
